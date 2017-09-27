@@ -80,7 +80,6 @@
               iterator(collection[keys],keys,collection);
           } 
       }
-      
   };
 
   // Returns the index at which value can be found in the array, or -1 if value
@@ -102,6 +101,13 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
+      var array = [];
+      _.each(collection,function(item, index, collection){
+          if(test(item)){
+              array.push(item);
+          }
+      });
+      return array;
   };
 
   // Return all elements of an array that don't pass a truth test.
