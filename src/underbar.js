@@ -35,13 +35,34 @@
     return n === undefined ? array[0] : array.slice(0, n);
   };
     
-    // the ? is a ternary operator.  
+    
+    /*
+    the ? is a ternary operator. 
+    
+    return n === undefined ? array[0] : array.slice(0, n)
+    
+    is equivalent to:
+    
+    if(n===undefined){
+        return array[0];
+    }else{
+        return array.slice(0, n);
+    }
+    
+    */
     
     
 
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
+      if(n === undefined){
+          return array[array.length-1];
+      }
+      return n > array.length ? array.slice() : array.slice(array.length-n);
+      
+      //logic:  if array length is 3 and want 2:
+      //array.slice(3-2)
   };
 
   // Call iterator(value, key, collection) for each element of collection.
