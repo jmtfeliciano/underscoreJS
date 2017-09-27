@@ -34,6 +34,10 @@
   _.first = function(array, n) {
     return n === undefined ? array[0] : array.slice(0, n);
   };
+    
+    // the ? is a ternary operator.  
+    
+    
 
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
