@@ -86,6 +86,8 @@
       _.each(collection, function(value){
           collection2.push(iterator(value));
       }); 
+      // forEach or _.each is passive.  after iterator does it job with each value, it needs to be processed.  
+      //here, we push the processed value to a new collection
       return collection2;
   };
 
