@@ -68,13 +68,15 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
-      var arrayCopy = array.slice();
-      //the gist:  if array is sorted, no need to run isSorted over iterator
-      if(isSorted){
-          return arrayCopy;
-      }else{
-          
-      }
+    var numberSeen = [];
+    numberSeen.push(array[0]);
+    for(var i=1; i<array.length; i++){
+        if(_.indexOf(numberSeen,array[i]) === -1){
+            numberSeen.push(array[i]);
+        }
+    }
+    return numberSeen;
+      /*  code works but it does not care for isSorted, iterator */
   };
 
 
