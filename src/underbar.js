@@ -76,7 +76,7 @@
         }
     }
     return numberSeen;
-      /*  code works but it does not care for isSorted, iterator */
+      /*  code works BUT it does not care for isSorted, iterator.  need to come back */
   };
 
 
