@@ -176,6 +176,7 @@
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
+      
   };
 
   // Like extend, but doesn't ever overwrite a key that already
