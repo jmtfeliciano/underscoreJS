@@ -30,7 +30,7 @@
               iterator(collection[i],i,collection)
           }
       }else{
-          for(var keys in collection){
+          for(let keys in collection){
               iterator(collection[keys],keys,collection);
           } 
       }
@@ -68,9 +68,9 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
-    var numberSeen = [];
+    let numberSeen = [];
     numberSeen.push(array[0]);
-    for(var i=1; i<array.length; i++){
+    for(let i=1; i<array.length; i++){
         if(_.indexOf(numberSeen,array[i]) === -1){
             numberSeen.push(array[i]);
         }
@@ -82,13 +82,13 @@
 
   // Return the results of applying an iterator to each element.
   _.map = function(collection, iterator) {
-      var collection2 = [];
+      let collection2 = [];
       _.each(collection, function(value){
           collection2.push(iterator(value));
       }); 
       // forEach or _.each is passive.  after iterator does it job with each value, it needs to be processed.  
       //here, we push the processed value to a new collection
-      return collection2;
+      return collection2;  
   };
 
   /*
@@ -129,7 +129,16 @@
   //     return total + number * number;
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
-  _.reduce = function(collection, iterator, accumulator) {
+  _.reduce = function(collection, iterator, accumulator){
+    _.each(collection, function(item) {   
+    if (accumulator === undefined) {
+      accumulator = item;
+    } else {
+      accumulator = iterator(accumulator, item);
+    }
+  });
+  return accumulator;
+
   };
 
   // Determine if the array or object contains a given value (using `===`).
@@ -248,6 +257,7 @@
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
+      
   };
 
 
