@@ -131,17 +131,17 @@
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator){
 
-    _.each(collection, function(item) {   
-      if (accumulator === undefined) {
+    let initializing = accumulator === undefined;
+
+    _.each(collection, function(item) {
+      if (initializing) {
         accumulator = item;
+        initializing = false;
       } else {
-        let returnedValue = iterator(accumulator, item); 
-        if(returnedValue !== null){
-          accumulator = iterator(accumulator, item);
-        }
+        accumulator = iterator(accumulator, item);
       }
     });
-
+    
     return accumulator;
 
   };
