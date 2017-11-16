@@ -91,34 +91,20 @@
       return collection2;  
   };
 
-  /*
-   * TIP: map is really handy when you want to transform an array of
-   * values into a new array of values. _.pluck() is solved for you
-   * as an example of this.
-   */
+
 
   // Takes an array of objects and returns and array of the values of
   // a certain property in it. E.g. take an array of people and return
   // an array of just their ages
   _.pluck = function(collection, key) {
     // TIP: map is really handy when you want to transform an array of
-    // values into a new array of values. _.pluck() is solved for you
-    // as an example of this.
+    // values into a new array of values.
     return _.map(collection, function(item){
       return item[key];
     });
   };
 
-  // Reduces an array or object to a single value by repetitively calling
-  // iterator(accumulator, item) for each item. accumulator should be
-  // the return value of the previous iterator call.
-  //  
-  // You can pass in a starting value for the accumulator as the third argument
-  // to reduce. If no starting value is passed, the first element is used as
-  // the accumulator, and is never passed to the iterator. In other words, in
-  // the case where a starting value is not passed, the iterator is not invoked
-  // until the second element, with the first element as its second argument.
-  //  
+
   // Example:
   //   var numbers = [1,2,3];
   //   var sum = _.reduce(numbers, function(total, number){
@@ -148,8 +134,6 @@
 
   // Determine if the array or object contains a given value (using `===`).
   _.contains = function(collection, target) {
-    // TIP: Many iteration problems can be most easily expressed in
-    // terms of reduce(). Here's a freebie to demonstrate!
     return _.reduce(collection, function(wasFound, item) {
       if (wasFound) {
         return true;
@@ -270,8 +254,6 @@
    * ADVANCED
    * =================
    *
-   * Note: This is the end of the pre-course curriculum. Feel free to continue,
-   * but nothing beyond here is required.
    */
 
   // Calls the method named by functionOrKey on each value in the list.
