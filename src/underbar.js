@@ -145,21 +145,31 @@
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
+
+    if(!iterator){
+      iterator = _.identity;
+    }
+
     let allTrue = true;
 
     _.each(collection, function(val,i){
-      if(iterator(val) === true){
-        allTrue = true;  
+      if(typeof(iterator(val)) === 'boolean' && iterator(val) !== true){
+        allTrue = false;
+      }
+      if(iterator(val) === 0 || iterator(val) === undefined){
+        allTrue = false;
       }
     });
 
     return allTrue;
   };
 
-  // Determine whether any of the elements pass a truth test. If no iterator is
-  // provided, provide a default one
+  // Determine whether any of the elements pass a truth test.
+
   _.some = function(collection, iterator) {
-    // TIP: There's a very clever way to re-use every() here.
+    return !_.every(collection,function(val){
+      return iterator ? !iterator(val) : !val;
+    });
   };
 
 
@@ -167,7 +177,6 @@
    * OBJECTS
    * =======
    *
-   * In this section, we'll look at a couple of helpers for merging objects.
    */
 
   // Extend a given object with all the properties of the passed in
