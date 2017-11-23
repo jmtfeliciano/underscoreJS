@@ -190,13 +190,25 @@
   //   }, {
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
-  _.extend = function(obj) {
-      
+  _.extend = function(obj1) {
+
+      let objects = Array.prototype.slice.call(arguments,1);
+      let combinedObject = obj1;
+
+      for(let i=0; i < objects.length; i++){
+        for(let key in objects[i]){
+          combinedObject[key] = objects[i][key]; 
+        }
+      }
+    
+      return combinedObject;
   };
 
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
+
+
   };
 
 
