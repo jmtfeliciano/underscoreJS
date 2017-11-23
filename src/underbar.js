@@ -278,7 +278,9 @@
         memo[args] = func.apply(this,args);
         return memo[args];
       }
-      
+
+      // error stems from (1,2,3) vs [1,2,3]
+
     };
 
   };
